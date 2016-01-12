@@ -43,9 +43,9 @@ Partial Class Form3
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Form3BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Form3BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,14 +60,15 @@ Partial Class Form3
         '
         'Chart1
         '
-        Me.Chart1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Chart1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.DataSource = Me.DataSet1
         Legend1.Enabled = False
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(12, 12)
+        Me.Chart1.Location = New System.Drawing.Point(6, 12)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
@@ -94,7 +95,7 @@ Partial Class Form3
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Data})
         Me.DataGridView1.DataSource = Me.DataSet1
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 318)
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 318)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(282, 147)
         Me.DataGridView1.TabIndex = 1
@@ -114,7 +115,7 @@ Partial Class Form3
         Legend2.Enabled = False
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
-        Me.Chart2.Location = New System.Drawing.Point(300, 12)
+        Me.Chart2.Location = New System.Drawing.Point(295, 12)
         Me.Chart2.Name = "Chart2"
         Series2.ChartArea = "ChartArea1"
         Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
@@ -127,14 +128,15 @@ Partial Class Form3
         '
         'Chart3
         '
-        Me.Chart3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Chart3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ChartArea3.Name = "ChartArea1"
         Me.Chart3.ChartAreas.Add(ChartArea3)
         Me.Chart3.DataSource = Me.DataSet1
         Legend3.Enabled = False
         Legend3.Name = "Legend1"
         Me.Chart3.Legends.Add(Legend3)
-        Me.Chart3.Location = New System.Drawing.Point(588, 12)
+        Me.Chart3.Location = New System.Drawing.Point(585, 12)
         Me.Chart3.Name = "Chart3"
         Series3.ChartArea = "ChartArea1"
         Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
@@ -152,7 +154,7 @@ Partial Class Form3
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
         Me.DataGridView2.DataSource = Me.DataSet1
-        Me.DataGridView2.Location = New System.Drawing.Point(300, 318)
+        Me.DataGridView2.Location = New System.Drawing.Point(295, 318)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(282, 147)
         Me.DataGridView2.TabIndex = 4
@@ -170,7 +172,7 @@ Partial Class Form3
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
         Me.DataGridView3.DataSource = Me.DataSet1
-        Me.DataGridView3.Location = New System.Drawing.Point(588, 318)
+        Me.DataGridView3.Location = New System.Drawing.Point(585, 318)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.Size = New System.Drawing.Size(282, 147)
         Me.DataGridView3.TabIndex = 5
@@ -194,17 +196,19 @@ Partial Class Form3
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(882, 477)
+        Me.ClientSize = New System.Drawing.Size(885, 477)
         Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Chart1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Form3"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Blue pill"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTable1, System.ComponentModel.ISupportInitialize).EndInit()

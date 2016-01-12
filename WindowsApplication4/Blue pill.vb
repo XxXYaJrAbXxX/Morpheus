@@ -15,31 +15,34 @@
         Dim anyRow As DataRow = DataTable1.NewRow
         'DataTable1.NewRow().Table.Rows.Add(DataRef)
         DataTable1.Columns.Add("Data")
-        For i = 1 To 50
+        For i = 0 To 49
             anyRow("Data") = DataRef(i)
         Next
         DataTable1.Rows.Add(anyRow)
         DataGridView1.DataSource = DataSet1
-        For i = 1 To DataRef.Length
-            'DataGridView1.Rows(i).Cells("Data").Value = anyRow(i)
+        For i = 0 To DataRef.Length
+            DataGridView1.Rows(i).Cells("Data").Value = anyRow(i)
         Next
         Return True
     End Function
     Function ResizeWindow()
         Dim windowWidth As Integer = Me.Size.Width
+        Chart2.Left = (windowWidth * 0.3333) - 2
+        Chart3.Left = (windowWidth * 0.6666) - 9
+        DataGridView2.Left = (windowWidth * 0.3333) - 2
+        DataGridView3.Left = (windowWidth * 0.6666) - 9
 
-        Chart1.Width = (windowWidth - 14)
-        Chart2.Width = (windowWidth - 14)
-        Chart3.Width = (windowWidth - 14)
-        DataGridView1.Width = (windowWidth - 14)
-        DataGridView2.Width = (windowWidth - 14)
-        DataGridView3.Width = (windowWidth - 14)
-        Chart2.Width = 0.33333 * (windowWidth)
-        Chart1.Width = 0.33333 * (windowWidth)
-        Chart3.Width = 0.33333 * (windowWidth)
+        Chart1.Width = (windowWidth * 0.3333) - 12
+        Chart2.Width = (windowWidth * 0.3333) - 12
+        Chart3.Width = (windowWidth * 0.3333) - 12
+        DataGridView1.Width = (windowWidth * 0.3333) - 12
+        DataGridView2.Width = (windowWidth * 0.3333) - 12
+        DataGridView3.Width = (windowWidth * 0.3333) - 12
+
     End Function
 
     Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
 
     End Sub
+
 End Class
