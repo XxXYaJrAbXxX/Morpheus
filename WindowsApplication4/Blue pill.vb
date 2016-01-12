@@ -21,7 +21,7 @@
         DataTable1.Rows.Add(anyRow)
         DataGridView1.DataSource = DataSet1
         For i = 0 To DataRef.Length
-            DataGridView1.Rows(i).Cells("Data").Value = anyRow(i)
+            'DataGridView1.Rows(i).Cells("Data").Value = anyRow(i)
         Next
         Return True
     End Function
