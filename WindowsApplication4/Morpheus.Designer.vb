@@ -48,20 +48,20 @@ Partial Class Morpheus
         '
         'red_Pill
         '
-        Me.red_Pill.Location = New System.Drawing.Point(13, 12)
+        Me.red_Pill.Location = New System.Drawing.Point(206, 11)
         Me.red_Pill.Name = "red_Pill"
         Me.red_Pill.Size = New System.Drawing.Size(186, 135)
         Me.red_Pill.TabIndex = 4
-        Me.red_Pill.Text = "Sorting Algorithms"
+        Me.red_Pill.Text = "Shortest Route"
         Me.red_Pill.UseVisualStyleBackColor = True
         '
         'blue_Pill
         '
-        Me.blue_Pill.Location = New System.Drawing.Point(206, 12)
+        Me.blue_Pill.Location = New System.Drawing.Point(12, 11)
         Me.blue_Pill.Name = "blue_Pill"
         Me.blue_Pill.Size = New System.Drawing.Size(186, 135)
         Me.blue_Pill.TabIndex = 5
-        Me.blue_Pill.Text = "Shortest route"
+        Me.blue_Pill.Text = "Sorting Algorithms"
         Me.blue_Pill.UseVisualStyleBackColor = True
         '
         'Morpheus
