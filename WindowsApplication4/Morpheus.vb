@@ -1,14 +1,16 @@
 ﻿Imports System.IO.File
 Public Class Morpheus
-    Dim Data(50) As Integer
-    Dim DataCollected As Boolean = False
-    Dim redPill As New Form2()
-    Dim bluePill As New Form3()
-    Dim FileName As String
-    Dim blueDataPass As Boolean = False
+    Private Data(50) As Integer
+    Private DataCollected As Boolean = False
+    Private redPill As New Form2()
+    Private bluePill As New Form3()
+    Private FileName As String
+    Private blueDataPass As Boolean = False
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FileName = Application.StartupPath + "\Data.txt"
         DataCollected = GetData(FileName)
+        'bluePill.Show()
+        'bluePill.Hide()
         'If DataCollected = False Then
         '    ToolStripStatusLabel1.Text = "File has NOT been found! - " + FileName
         'ElseIf DataCollected = True Then
@@ -40,9 +42,9 @@ Public Class Morpheus
 
     Private Sub blue_Pill_Click(sender As Object, e As EventArgs) Handles blue_Pill.Click
         Me.Hide()
-        If blueDataPass = False Then
-            blueDataPass = bluePill.PassData(Data, DataCollected, FileName)
-        End If
+        'If blueDataPass = False Then
+        blueDataPass = bluePill.PassData(Data, DataCollected, FileName)
+        'End If
         bluePill.Show()
         bluePill = New Form3()
     End Sub
