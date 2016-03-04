@@ -1,6 +1,6 @@
 ﻿Imports System.IO.File
 Public Class Morpheus
-    Private Data(50) As Integer
+    Private Data() As Integer
     Private DataCollected As Boolean = False
     Private redPill As New Form2()
     Private bluePill As New Form3()
@@ -22,7 +22,8 @@ Public Class Morpheus
         Try
             Using reader As System.IO.StreamReader = New System.IO.StreamReader(File)
                 Dim NoLines As Integer = System.IO.File.ReadAllLines(File).Length
-                For i = 1 To NoLines
+                ReDim Data(NoLines - 1)
+                For i = 0 To NoLines
                     Data(i) = Int(reader.ReadLine())
                 Next
                 reader.Close()
@@ -34,10 +35,12 @@ Public Class Morpheus
     End Function
 
     Private Sub red_Pill_Click(sender As Object, e As EventArgs) Handles red_Pill.Click
-        Me.Hide()
-        redPill.Show()
-        redPill.PassData(Data, DataCollected, FileName)
-        redPill = New Form2()
+        'Me.Hide()
+        'redPill.Show()
+        'redPill.PassData(Data, DataCollected, FileName)
+        'redPill = New Form2()
+
+
     End Sub
 
     Private Sub blue_Pill_Click(sender As Object, e As EventArgs) Handles blue_Pill.Click
