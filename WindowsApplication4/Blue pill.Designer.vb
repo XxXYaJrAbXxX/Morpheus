@@ -67,7 +67,6 @@ Partial Class Form3
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Enabled = False
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(6, 12)
@@ -146,7 +145,7 @@ Partial Class Form3
         '
         'Timer1
         '
-        Me.Timer1.Interval = 550
+        Me.Timer1.Interval = 300
         '
         'Chart2
         '
@@ -154,7 +153,6 @@ Partial Class Form3
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         ChartArea2.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea2)
-        Legend2.Enabled = False
         Legend2.Name = "Legend1"
         Me.Chart2.Legends.Add(Legend2)
         Me.Chart2.Location = New System.Drawing.Point(295, 12)
@@ -174,7 +172,6 @@ Partial Class Form3
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         ChartArea3.Name = "ChartArea1"
         Me.Chart3.ChartAreas.Add(ChartArea3)
-        Legend3.Enabled = False
         Legend3.Name = "Legend1"
         Me.Chart3.Legends.Add(Legend3)
         Me.Chart3.Location = New System.Drawing.Point(585, 12)
@@ -193,11 +190,10 @@ Partial Class Form3
         Me.TrackBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TrackBar1.Location = New System.Drawing.Point(6, 438)
-        Me.TrackBar1.Minimum = 1
         Me.TrackBar1.Name = "TrackBar1"
         Me.TrackBar1.Size = New System.Drawing.Size(861, 45)
         Me.TrackBar1.TabIndex = 8
-        Me.TrackBar1.Value = 1
+        Me.TrackBar1.Value = 5
         '
         'Form3BindingSource
         '

@@ -35,10 +35,10 @@ Public Class Morpheus
     End Function
 
     Private Sub red_Pill_Click(sender As Object, e As EventArgs) Handles red_Pill.Click
-        'Me.Hide()
-        'redPill.Show()
-        'redPill.PassData(Data, DataCollected, FileName)
-        'redPill = New Form2()
+        Me.Hide()
+        redPill.Show()
+        redPill.PassData(Data, DataCollected, FileName)
+        redPill = New Form2()
 
 
     End Sub

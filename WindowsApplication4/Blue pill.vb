@@ -1,12 +1,17 @@
 ﻿Public Class Form3
     Private StartingData() As Integer
-    Private RefData() As Integer
+    Private BubbleArr() As Integer
+    Private QuicksortArr() As Integer
     Private DataCollected As Boolean
     Private FileLoc As String
     Private x1Val() As String
     Private x2Val() As String
     Private x3Val() As String
-    Private List() As Integer
+    Private InsertionArr() As Integer
+    Private InsertionSelArr() As Integer
+    Private InsertionNewArr() As Integer
+    Dim BubbleActive As Boolean
+    Dim InsertionActive As Boolean
     Dim InsertionSort As Integer = 0
     Dim iOuter As Long
     Dim iInner As Long
@@ -16,7 +21,6 @@
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ResizeWindow()
-        'List = RefData
         InsertionSort = 1
         Timer1.Start()
     End Sub
@@ -28,27 +32,18 @@
     Public Function PassData(ByVal DataRef() As Integer, ByVal DataCollected As Boolean, ByVal FileName As String) As Boolean
         Me.DataCollected = DataCollected
         FileLoc = FileName
-        'DataGridView1.AllowUserToAddRows = False
-        'Dim anyRow As DataRow = DataTable1.NewRow
-        'DataTable1.NewRow().Table.Rows.Add(DataRef)
         ReDim StartingData(DataRef.Count - 1)
-        ReDim RefData(DataRef.Count - 1)
-        ReDim List(DataRef.Count - 1)
+        ReDim BubbleArr(DataRef.Count - 1)
+        ReDim InsertionArr(DataRef.Count - 1)
+        ReDim QuicksortArr(DataRef.Count - 1)
         For i = 0 To DataRef.Count - 1
             StartingData(i) = DataRef(i)
-            RefData(i) = DataRef(i)
-            List(i) = DataRef(i)
+            BubbleArr(i) = DataRef(i)
+            InsertionArr(i) = DataRef(i)
+            QuicksortArr(i) = DataRef(i)
         Next
-
-        'DataTable1.Columns.Add("Data")
-        'For i = 0 To 49
-        'anyRow("Data") = DataRef(i)
-        'Next
-        'DataTable1.Rows.Add(anyRow)
-        'DataGridView1.DataSource = DataSet1
-        'For i = 0 To DataRef.Length
-        ' DataGridView1.Rows(i).Cells("Data").Value = anyRow(i)
-        'Next
+        BubbleActive = True
+        InsertionActive = True
         Return True
     End Function
     Function ResizeWindow()
@@ -68,174 +63,153 @@
     End Function
 
     Private Sub BubbleSortFunc()
-        Chart1.Series.Clear()
-        Chart1.Titles.Clear()
-        ReDim x1Val(RefData.Count - 1)
-        Dim seriesname1 As String
-        Dim BubbleCache As Integer
-        seriesname1 = "Bubble sort"
-        Chart1.Series.Add(seriesname1)
-        For i = 0 To RefData.Count
-            If RefData(i + 1) >= RefData(i) Then
-            Else
-                BubbleCache = RefData(i)
-                RefData(i) = RefData(i + 1)
-                RefData(i + 1) = BubbleCache
-                Exit For
-            End If
-        Next
-        For i = 0 To List.Count - 1
-            x1Val(i) = i.ToString
-        Next
-        Chart1.Series(seriesname1).Points.DataBindXY(x1Val, RefData)
-
+        If BubbleActive = True Then
+            Chart1.Series.Clear()
+            Chart1.Titles.Clear()
+            ReDim x1Val(BubbleArr.Count - 1)
+            Dim seriesname1 As String
+            Dim BubbleCache As Integer
+            seriesname1 = "Bubble sort"
+            Chart1.Series.Add(seriesname1)
+            For i = 0 To BubbleArr.Count - 2
+                If BubbleArr(i + 1) >= BubbleArr(i) Then
+                Else
+                    BubbleCache = BubbleArr(i)
+                    BubbleArr(i) = BubbleArr(i + 1)
+                    BubbleArr(i + 1) = BubbleCache
+                    Exit For
+                End If
+            Next
+            For i = 0 To InsertionArr.Count - 1
+                x1Val(i) = i.ToString
+            Next
+            Chart1.Series(seriesname1).Points.DataBindXY(x1Val, BubbleArr)
+        Else
+        End If
     End Sub
 
     Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
-
+        BubbleActive = False
+        For i = 0 To StartingData.Count - 1
+            BubbleArr(i) = StartingData(i)
+        Next
+        BubbleActive = True
     End Sub
-    'Sub InsertionSort(List() As Integer, min As Integer, max As Integer)
-    '    Dim med_value As Long
-    '    Dim i As Integer
-
-    '    ' If the list has no more than 1 element, it's sorted.
-    '    If min >= max Then Exit Sub
-
-    '    ' Pick a dividing item.
-    '    i = Int((max - min + 1) * Rnd() + min)
-    '    x2Val(i) = i.ToString
-    '    med_value = List(i)
-
-    '    ' Swap it to the front so we can find it easily.
-    '    List(i) = List(min)
-
-    '    ' Move the items smaller than this into the left
-    '    ' half of the list. Move the others into the right.
-    '    lo = min
-    '    hi = max
-    '    ' Look down from hi for a value < med_value.
-    '    If List(hi) >= med_value Then
-    '        hi = hi - 1
-    '        If hi <= lo Then
-    '            If hi <= lo Then
-    '                List(lo) = med_value
-    '            End If
-    '        End If
-    '    End If
-
-    '    ' Swap the lo and hi values.
-    '    List(lo) = List(hi)
-
-    '    ' Look up from lo for a value >= med_value.
-    '    lo = lo + 1
-    '    If List(lo) < med_value Then
-    '        lo = lo + 1
-    '        If lo >= hi Then
-    '            If lo >= hi Then
-    '                lo = hi
-    '                List(hi) = med_value
-    '            End If
-    '        End If
-    '    End If
-
-
-    '    ' Swap the lo and hi values.
-    '    List(hi) = List(lo)
-
-    '    ' Sort the two sublists
-    '    'InsertionSort(List, min, lo - 1)
-    '    'InsertionSort(List, lo + 1, max)
-    'End Sub
 
     Private Sub InsertionSortFunc()
 
-        Chart2.Series.Clear()
-        Chart2.Titles.Clear()
-        ReDim x2Val(List.Count - 1)
-        Dim seriesname2 As String
-        seriesname2 = "Insertion sort"
-        Chart2.Series.Add(seriesname2)
+        If InsertionActive = True Then
+            Chart2.Series.Clear()
+            Chart2.Titles.Clear()
+            ReDim x2Val(InsertionArr.Count - 1)
+            ReDim InsertionSelArr(InsertionArr.Count - 1)
+            ReDim InsertionNewArr(InsertionArr.Count - 1)
+            Dim InsertionSeries1 As String
+            Dim InsertionSeries2 As String
+            Dim InsertionSeries3 As String
+            InsertionSeries1 = "Insertion sort"
+            InsertionSeries2 = "Original slot"
+            InsertionSeries3 = "New slot"
+            Chart2.Series.Add(InsertionSeries1)
+            Chart2.Series.Add(InsertionSeries2)
+            Chart2.Series.Add(InsertionSeries3)
 
-        iLBound = LBound(List)
-        iUBound = UBound(List)
-        If InsertionSort = 1 Then
-            InsertionSort = 2
-            iOuter = iLBound + 1
-        End If
-        If InsertionSort < 3 Then
-            If iOuter <= iUBound Then
-
-                'Get the value to be inserted
-                iTemp = List(iOuter)
-
-                'Move along the already sorted values shifting along
-                iInner = iOuter - 1
-                For iInner = iOuter - 1 To iLBound Step -1
-
-                    'No more shifting needed, we found the right spot!
-                    If List(iInner) <= iTemp Then Exit For
-                    List(iInner + 1) = List(iInner)
-                Next iInner
-                'Insert value in the slot
-                List(iInner + 1) = iTemp
+            iLBound = LBound(InsertionArr)
+            iUBound = UBound(InsertionArr)
+            If InsertionSort = 1 Then
+                InsertionSort = 2
+                iOuter = iLBound + 1
             End If
-            iOuter += 1
+            If InsertionSort < 3 Then
+                If iOuter <= iUBound Then
+                    iTemp = InsertionArr(iOuter)
+                    InsertionSelArr(iOuter) = InsertionArr(iOuter)
+                    iInner = iOuter - 1
+                    For iInner = iOuter - 1 To iLBound Step -1
+                        For i = 0 To InsertionArr.Count - 1
+                            InsertionNewArr(i) = 0
+                        Next
+                        InsertionNewArr(iInner) = iTemp
+                        If InsertionArr(iInner) <= iTemp Then Exit For
+                        InsertionArr(iInner + 1) = InsertionArr(iInner)
+                    Next iInner
+                    InsertionArr(iInner + 1) = iTemp
+                End If
+                iOuter += 1
+            End If
+            For i = 0 To InsertionArr.Count - 1
+                x2Val(i) = i.ToString
+            Next
+            Chart2.Series(InsertionSeries1).Points.DataBindXY(x2Val, InsertionArr)
+            Chart2.Series(InsertionSeries2).Points.DataBindXY(x2Val, InsertionSelArr)
+            Chart2.Series(InsertionSeries3).Points.DataBindXY(x2Val, InsertionNewArr)
+        Else
         End If
-
-        'Initializes the Insertion sort
-
-        ''Checks to see if the sort is finished
-        'If InsertionSort < 3 Then
-        '    'Checks to see if it is less or equal to upper bound
-        '    If iOuter <= iUBound Then
-        '        'Has inner status been ran before?
-        '        If innerstatus = 0 Then
-        '            innerstatus = 1
-        '            iInner = iOuter - 1
-        '        End If
-        '        iTemp = List(iOuter)
-        '        'Is iInner greater than iLBound?
-        '        If iInner > iLBound Then
-        '            If List(iInner) <= iTemp Then
-        '                innerstatus = 0
-        '                iOuter = iOuter + 1
-        '            Else
-        '                List(iInner + 1) = List(iInner)
-        '            End If
-        '            iInner = iInner - 1
-        '        Else
-        '            iOuter = iOuter + 1
-        '            innerstatus = 0
-        '        End If
-
-        '        List(iInner + 1) = iTemp
-        '    End If
-        'Else
-        '    InsertionSort = 3
-        'End If
-        For i = 0 To List.Count - 1
-            x2Val(i) = i.ToString
-        Next
-        'For i = 1 To RefData.Count - 1
-        '    If RefData(i - 1) < RefData(i) Then
-        '    Else
-        '        RefData(0) = RefData(i)
-        '        RefData(i) = RefData(i - 1)
-        '        RefData(i - 1) = RefData(0)
-        '        x2Val(i) = i.ToString
-        '    End If
-        'Next
-
-        'Dim ints() As Integer = {10, 10, 44}
-        Chart2.Series(seriesname2).Points.DataBindXY(x2Val, List)
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         BubbleSortFunc()
         InsertionSortFunc()
+        'Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
     End Sub
 
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
         Timer1.Interval = 550 - TrackBar1.Value * 50
+        If TrackBar1.Value = 0 Then
+            Timer1.Stop()
+        Else
+            Timer1.Start()
+        End If
+    End Sub
+
+    Private Sub Chart2_Click(sender As Object, e As EventArgs) Handles Chart2.Click
+        InsertionActive = False
+        For i = 0 To StartingData.Count - 1
+            InsertionArr(i) = StartingData(i)
+        Next
+        InsertionSort = 1
+        iOuter = 0
+        iInner = 0
+        iLBound = 0
+        iUBound = 0
+        iTemp = 0
+        InsertionActive = True
+    End Sub
+
+    Private Sub Quicksort(Low As Integer, High As Integer)
+        Chart3.Series.Clear()
+        Chart3.Titles.Clear()
+        ReDim x3Val(QuicksortArr.Count - 1)
+        Dim seriesname3 As String
+        seriesname3 = "Quicksort"
+        Chart3.Series.Add(seriesname3)
+
+        Dim xTmp As Int32
+        Dim xLo As Int32 = Low
+        Dim xHi As Int32 = High
+        Dim xPivot As Int32 = QuicksortArr((xLo + xHi) \ 2)
+        If xLo <= xHi Then
+
+            Do While QuicksortArr(xLo) < xPivot
+                xLo += 1
+            Loop
+            Do While QuicksortArr(xHi) > xPivot
+                xHi -= 1
+            Loop
+            If xLo <= xHi Then
+                xTmp = QuicksortArr(xLo)
+                QuicksortArr(xLo) = QuicksortArr(xHi)
+                QuicksortArr(xHi) = xTmp
+                xLo += 1
+                xHi -= 1
+            End If
+            xLo += 1
+        End If
+        If (xLo < High) Then Quicksort(xLo, High)
+        If (xHi > Low) Then Quicksort(Low, xHi)
+        For i = 0 To QuicksortArr.Count - 1
+            x3Val(i) = i.ToString
+        Next
+        Chart3.Series(seriesname3).Points.DataBindXY(x3Val, InsertionArr)
     End Sub
 End Class
