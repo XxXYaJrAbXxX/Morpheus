@@ -1,15 +1,15 @@
 ﻿Public Class Form3
     Private StartingData() As Integer
     Private BubbleArr() As Integer
+    Private InsertionArr() As Integer
+    Private InsertionSelArr() As Integer
+    Private InsertionNewArr() As Integer
     Private QuicksortArr() As Integer
     Private DataCollected As Boolean
     Private FileLoc As String
     Private x1Val() As String
     Private x2Val() As String
     Private x3Val() As String
-    Private InsertionArr() As Integer
-    Private InsertionSelArr() As Integer
-    Private InsertionNewArr() As Integer
     Dim BubbleActive As Boolean
     Dim InsertionActive As Boolean
     Dim InsertionSort As Integer = 0
@@ -67,10 +67,10 @@
             Chart1.Series.Clear()
             Chart1.Titles.Clear()
             ReDim x1Val(BubbleArr.Count - 1)
-            Dim seriesname1 As String
+            Dim BubbleSeries1 As String
             Dim BubbleCache As Integer
-            seriesname1 = "Bubble sort"
-            Chart1.Series.Add(seriesname1)
+            BubbleSeries1 = "Bubble sort"
+            Chart1.Series.Add(BubbleSeries1)
             For i = 0 To BubbleArr.Count - 2
                 If BubbleArr(i + 1) >= BubbleArr(i) Then
                 Else
@@ -83,7 +83,7 @@
             For i = 0 To InsertionArr.Count - 1
                 x1Val(i) = i.ToString
             Next
-            Chart1.Series(seriesname1).Points.DataBindXY(x1Val, BubbleArr)
+            Chart1.Series(BubbleSeries1).Points.DataBindXY(x1Val, BubbleArr)
         Else
         End If
     End Sub
@@ -150,7 +150,7 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         BubbleSortFunc()
         InsertionSortFunc()
-        'Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
+        Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
     End Sub
 
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
@@ -210,6 +210,6 @@
         For i = 0 To QuicksortArr.Count - 1
             x3Val(i) = i.ToString
         Next
-        Chart3.Series(seriesname3).Points.DataBindXY(x3Val, InsertionArr)
+        Chart3.Series(seriesname3).Points.DataBindXY(x3Val, QuicksortArr)
     End Sub
 End Class
