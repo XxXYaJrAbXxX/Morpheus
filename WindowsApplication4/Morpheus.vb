@@ -29,6 +29,7 @@ Public Class Morpheus
                 reader.Close()
             End Using
         Catch ex As Exception
+            Return False
         End Try
         Return True
     End Function
