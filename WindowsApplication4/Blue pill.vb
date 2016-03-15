@@ -1,8 +1,6 @@
 ﻿Public Class Form3
     Private StartingData() As Integer
     Private BubbleArr() As Integer
-    Private BubbleSelArr() As Integer
-    Private BubbleNewArr() As Integer
     Private InsertionArr() As Integer
     Private InsertionSelArr() As Integer
     Private InsertionNewArr() As Integer
@@ -14,7 +12,6 @@
     Private x3Val() As String
     Dim BubbleActive As Boolean
     Dim InsertionActive As Boolean
-    Dim QuicksortActive As Boolean
     Dim InsertionSort As Integer = 0
     Dim iOuter As Long
     Dim iInner As Long
@@ -47,7 +44,6 @@
         Next
         BubbleActive = True
         InsertionActive = True
-        QuicksortActive = True
         Return True
     End Function
     Function ResizeWindow()
@@ -63,9 +59,6 @@
         DataGridView1.Width = (windowWidth * 0.3333) - 12
         DataGridView2.Width = (windowWidth * 0.3333) - 12
         DataGridView3.Width = (windowWidth * 0.3333) - 12
-        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        DataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
     End Function
 
@@ -74,43 +67,23 @@
             Chart1.Series.Clear()
             Chart1.Titles.Clear()
             ReDim x1Val(BubbleArr.Count - 1)
-            ReDim BubbleSelArr(BubbleArr.Count - 1)
-            ReDim BubbleNewArr(BubbleArr.Count - 1)
             Dim BubbleSeries1 As String
-            Dim BubbleSeries2 As String
-            Dim BubbleSeries3 As String
             Dim BubbleCache As Integer
             BubbleSeries1 = "Bubble sort"
-            BubbleSeries2 = "Original slot"
-            BubbleSeries3 = "New slot"
             Chart1.Series.Add(BubbleSeries1)
-            Chart1.Series.Add(BubbleSeries2)
-            Chart1.Series.Add(BubbleSeries3)
-            For i = 0 To BubbleArr.Count - 1
-                BubbleSelArr(i) = 0
-                BubbleNewArr(i) = 0
-            Next
             For i = 0 To BubbleArr.Count - 2
                 If BubbleArr(i + 1) >= BubbleArr(i) Then
                 Else
                     BubbleCache = BubbleArr(i)
-                    BubbleSelArr(i + 1) = BubbleArr(i + 1)
-                    BubbleNewArr(i) = BubbleArr(i)
                     BubbleArr(i) = BubbleArr(i + 1)
                     BubbleArr(i + 1) = BubbleCache
                     Exit For
                 End If
             Next
-                For i = 0 To BubbleArr.Count - 1
-                    x1Val(i) = i.ToString
-                Next
+            For i = 0 To InsertionArr.Count - 1
+                x1Val(i) = i.ToString
+            Next
             Chart1.Series(BubbleSeries1).Points.DataBindXY(x1Val, BubbleArr)
-            Chart1.Series(BubbleSeries2).Points.DataBindXY(x1Val, BubbleSelArr)
-            Chart1.Series(BubbleSeries3).Points.DataBindXY(x1Val, BubbleNewArr)
-            Dim BubbleDataSet As System.Data.DataSet = Chart1.DataManipulator.ExportSeriesValues()
-            DataGridView1.DataSource = BubbleDataSet
-            DataGridView1.DataMember = BubbleSeries1
-            DataGridView1.Update()
         Else
         End If
     End Sub
@@ -170,10 +143,6 @@
             Chart2.Series(InsertionSeries1).Points.DataBindXY(x2Val, InsertionArr)
             Chart2.Series(InsertionSeries2).Points.DataBindXY(x2Val, InsertionSelArr)
             Chart2.Series(InsertionSeries3).Points.DataBindXY(x2Val, InsertionNewArr)
-            Dim InsertionDataSet As System.Data.DataSet = Chart2.DataManipulator.ExportSeriesValues()
-            DataGridView2.DataSource = InsertionDataSet
-            DataGridView2.DataMember = InsertionSeries1
-            DataGridView2.Update()
         Else
         End If
     End Sub
@@ -208,78 +177,39 @@
     End Sub
 
     Private Sub Quicksort(Low As Integer, High As Integer)
-        If QuicksortActive = True Then
-            Chart3.Series.Clear()
-            Chart3.Titles.Clear()
-            ReDim x3Val(QuicksortArr.Count - 1)
-            Dim QuicksortSeries1 As String
-            QuicksortSeries1 = "Quicksort"
-            Chart3.Series.Add(QuicksortSeries1)
+        Chart3.Series.Clear()
+        Chart3.Titles.Clear()
+        ReDim x3Val(QuicksortArr.Count - 1)
+        Dim seriesname3 As String
+        seriesname3 = "Quicksort"
+        Chart3.Series.Add(seriesname3)
 
-            Dim xTmp As Int32
-            Dim xLo As Int32 = Low
-            Dim xHi As Int32 = High
-            Dim xPivot As Int32 = QuicksortArr((xLo + xHi) \ 2)
-            If xLo <= xHi Then
+        Dim xTmp As Int32
+        Dim xLo As Int32 = Low
+        Dim xHi As Int32 = High
+        Dim xPivot As Int32 = QuicksortArr((xLo + xHi) \ 2)
+        If xLo <= xHi Then
 
-                Do While QuicksortArr(xLo) < xPivot
-                    xLo += 1
-                Loop
-                Do While QuicksortArr(xHi) > xPivot
-                    xHi -= 1
-                Loop
-                If xLo <= xHi Then
-                    xTmp = QuicksortArr(xLo)
-                    QuicksortArr(xLo) = QuicksortArr(xHi)
-                    QuicksortArr(xHi) = xTmp
-                    xLo += 1
-                    xHi -= 1
-                End If
+            Do While QuicksortArr(xLo) < xPivot
                 xLo += 1
+            Loop
+            Do While QuicksortArr(xHi) > xPivot
+                xHi -= 1
+            Loop
+            If xLo <= xHi Then
+                xTmp = QuicksortArr(xLo)
+                QuicksortArr(xLo) = QuicksortArr(xHi)
+                QuicksortArr(xHi) = xTmp
+                xLo += 1
+                xHi -= 1
             End If
-            If (xLo < High) Then Quicksort(xLo, High)
-            If (xHi > Low) Then Quicksort(Low, xHi)
-            For i = 0 To QuicksortArr.Count - 1
-                x3Val(i) = i.ToString
-            Next
-            Chart3.Series(QuicksortSeries1).Points.DataBindXY(x3Val, QuicksortArr)
-            Dim QuicksortDataSet As System.Data.DataSet = Chart3.DataManipulator.ExportSeriesValues()
-            DataGridView3.DataSource = QuicksortDataSet
-            DataGridView3.DataMember = QuicksortSeries1
-            DataGridView3.Update()
-        Else
+            xLo += 1
         End If
-    End Sub
-
-    Private Sub Chart3_Click(sender As Object, e As EventArgs) Handles Chart3.Click
-        QuicksortActive = False
-        For i = 0 To StartingData.Count - 1
-            QuicksortArr(i) = StartingData(i)
+        If (xLo < High) Then Quicksort(xLo, High)
+        If (xHi > Low) Then Quicksort(Low, xHi)
+        For i = 0 To QuicksortArr.Count - 1
+            x3Val(i) = i.ToString
         Next
-        QuicksortActive = True
-    End Sub
-
-    Private Sub DataGridView1_Scroll(sender As Object, e As ScrollEventArgs) Handles DataGridView1.Scroll
-        If DataGridView1.VerticalScrollingOffset = 0 Then
-            Timer1.Start()
-        Else
-            Timer1.Stop()
-        End If
-    End Sub
-
-    Private Sub DataGridView2_Scroll(sender As Object, e As ScrollEventArgs) Handles DataGridView2.Scroll
-        If DataGridView2.VerticalScrollingOffset = 0 Then
-            Timer1.Start()
-        Else
-            Timer1.Stop()
-        End If
-    End Sub
-
-    Private Sub DataGridView3_Scroll(sender As Object, e As ScrollEventArgs) Handles DataGridView3.Scroll
-        If DataGridView3.VerticalScrollingOffset = 0 Then
-            Timer1.Start()
-        Else
-            Timer1.Stop()
-        End If
+        Chart3.Series(seriesname3).Points.DataBindXY(x3Val, QuicksortArr)
     End Sub
 End Class

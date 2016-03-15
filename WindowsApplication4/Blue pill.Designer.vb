@@ -35,25 +35,28 @@ Partial Class Form3
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.DataSet1 = New System.Data.DataSet()
         Me.DataTable1 = New System.Data.DataTable()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Data = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TrackBar1 = New System.Windows.Forms.TrackBar()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Form3BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Form3BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTable1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Form3BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Form3BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -85,6 +88,60 @@ Partial Class Form3
         'DataTable1
         '
         Me.DataTable1.TableName = "Data"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Data})
+        Me.DataGridView1.DataSource = Me.DataSet1
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 330)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(282, 102)
+        Me.DataGridView1.TabIndex = 1
+        '
+        'Data
+        '
+        Me.Data.HeaderText = "Data"
+        Me.Data.Name = "Data"
+        Me.Data.Width = 239
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
+        Me.DataGridView2.DataSource = Me.DataSet1
+        Me.DataGridView2.Location = New System.Drawing.Point(295, 330)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(282, 102)
+        Me.DataGridView2.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Data"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 239
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView3.AutoGenerateColumns = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2})
+        Me.DataGridView3.DataSource = Me.DataSet1
+        Me.DataGridView3.Location = New System.Drawing.Point(585, 330)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(282, 102)
+        Me.DataGridView3.TabIndex = 5
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Data"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 239
         '
         'Timer1
         '
@@ -138,33 +195,6 @@ Partial Class Form3
         Me.TrackBar1.TabIndex = 8
         Me.TrackBar1.Value = 5
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(295, 330)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(282, 102)
-        Me.DataGridView2.TabIndex = 9
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(585, 330)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(282, 102)
-        Me.DataGridView3.TabIndex = 10
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 330)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(282, 102)
-        Me.DataGridView1.TabIndex = 11
-        '
         'Form3BindingSource
         '
         Me.Form3BindingSource.DataSource = GetType(WindowsApplication4.Form3)
@@ -179,12 +209,12 @@ Partial Class Form3
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(885, 489)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.DataGridView3)
-        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.TrackBar1)
         Me.Controls.Add(Me.Chart3)
         Me.Controls.Add(Me.Chart2)
+        Me.Controls.Add(Me.DataGridView3)
+        Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Chart1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -195,12 +225,12 @@ Partial Class Form3
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTable1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Form3BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Form3BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -210,15 +240,18 @@ Partial Class Form3
 
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents Form3BindingSource As BindingSource
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Data As DataGridViewTextBoxColumn
     Friend WithEvents Form3BindingSource1 As BindingSource
     Friend WithEvents DataSet1 As DataSet
     Friend WithEvents DataTable1 As DataTable
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
     Friend WithEvents Chart3 As DataVisualization.Charting.Chart
     Friend WithEvents TrackBar1 As TrackBar
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents DataGridView1 As DataGridView
 End Class
