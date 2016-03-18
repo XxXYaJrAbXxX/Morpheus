@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGeneration.Designer.vb">
+      <DependentUpon>DataGeneration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DataGeneration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Morpheus.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Blue pill.resx">
       <DependentUpon>Blue pill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGeneration.resx">
+      <DependentUpon>DataGeneration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Morpheus.resx">
       <DependentUpon>Morpheus.vb</DependentUpon>

@@ -9,14 +9,6 @@ Public Class Morpheus
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FileName = Application.StartupPath + "\Data.txt"
         DataCollected = GetData(FileName)
-        'bluePill.Show()
-        'bluePill.Hide()
-        'If DataCollected = False Then
-        '    ToolStripStatusLabel1.Text = "File has NOT been found! - " + FileName
-        'ElseIf DataCollected = True Then
-        '    ToolStripStatusLabel1.Text = "File has been found! - " + FileName
-        'End If
-
     End Sub
     Function GetData(ByVal File As String) As Boolean
         Try
@@ -45,10 +37,13 @@ Public Class Morpheus
 
     Private Sub blue_Pill_Click(sender As Object, e As EventArgs) Handles blue_Pill.Click
         Me.Hide()
-        'If blueDataPass = False Then
         blueDataPass = bluePill.PassData(Data, DataCollected, FileName)
-        'End If
         bluePill.Show()
         bluePill = New Form3()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Hide()
+        DataGeneration.Show()
     End Sub
 End Class

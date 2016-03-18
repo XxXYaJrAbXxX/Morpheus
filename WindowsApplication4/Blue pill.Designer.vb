@@ -36,13 +36,13 @@ Partial Class Form3
         Me.DataSet1 = New System.Data.DataSet()
         Me.DataTable1 = New System.Data.DataTable()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart3 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TrackBar1 = New System.Windows.Forms.TrackBar()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Form3BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Form3BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,10 +85,6 @@ Partial Class Form3
         'DataTable1
         '
         Me.DataTable1.TableName = "Data"
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 300
         '
         'Chart2
         '
@@ -165,6 +161,10 @@ Partial Class Form3
         Me.DataGridView1.Size = New System.Drawing.Size(282, 102)
         Me.DataGridView1.TabIndex = 11
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 300
+        '
         'Form3BindingSource
         '
         Me.Form3BindingSource.DataSource = GetType(WindowsApplication4.Form3)
@@ -214,11 +214,11 @@ Partial Class Form3
     Friend WithEvents DataSet1 As DataSet
     Friend WithEvents DataTable1 As DataTable
     Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents Timer1 As Timer
     Friend WithEvents Chart2 As DataVisualization.Charting.Chart
     Friend WithEvents Chart3 As DataVisualization.Charting.Chart
     Friend WithEvents TrackBar1 As TrackBar
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Timer1 As Timer
 End Class

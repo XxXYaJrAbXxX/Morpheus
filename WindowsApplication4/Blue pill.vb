@@ -25,6 +25,7 @@
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ResizeWindow()
         InsertionSort = 1
+        Timer1.Enabled = True
         Timer1.Start()
     End Sub
     Private Sub Form3_Closed(sender As Object, e As EventArgs) Handles MyBase.Closed
@@ -178,12 +179,6 @@
         End If
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        BubbleSortFunc()
-        InsertionSortFunc()
-        Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
-    End Sub
-
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
         Timer1.Interval = 550 - TrackBar1.Value * 50
         If TrackBar1.Value = 0 Then
@@ -222,12 +217,12 @@
             Dim xPivot As Int32 = QuicksortArr((xLo + xHi) \ 2)
             If xLo <= xHi Then
 
-                Do While QuicksortArr(xLo) < xPivot
+                If QuicksortArr(xLo) < xPivot Then
                     xLo += 1
-                Loop
-                Do While QuicksortArr(xHi) > xPivot
+                End If
+                If QuicksortArr(xHi) > xPivot Then
                     xHi -= 1
-                Loop
+                End If
                 If xLo <= xHi Then
                     xTmp = QuicksortArr(xLo)
                     QuicksortArr(xLo) = QuicksortArr(xHi)
@@ -281,5 +276,11 @@
         Else
             Timer1.Stop()
         End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        BubbleSortFunc()
+        InsertionSortFunc()
+        'Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
     End Sub
 End Class

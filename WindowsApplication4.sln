@@ -9,6 +9,11 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "jay Sorting", "..\jay Sorti
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Sort", "..\..\..\Visual Studio 2010\Projects\Sort\Sort\Sort.vbproj", "{AFA8D25A-D6A1-442D-9056-131129DF7635}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F663D1C2-834C-48B5-A3E8-8FFB41656C4A}"
+	ProjectSection(SolutionItems) = preProject
+		DataGeneration.vb = DataGeneration.vb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
