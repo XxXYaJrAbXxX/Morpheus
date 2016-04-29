@@ -281,6 +281,6 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         BubbleSortFunc()
         InsertionSortFunc()
-        'Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
+        Quicksort(LBound(QuicksortArr), UBound(QuicksortArr))
     End Sub
 End Class

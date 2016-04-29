@@ -19,6 +19,11 @@ Public Class Morpheus
                     Data(i) = Int(reader.ReadLine())
                 Next
                 reader.Close()
+                For i = 1 To Data.Length
+                    If Data(i) = 0 Then
+
+                    End If
+                Next
             End Using
         Catch ex As Exception
             Return False

@@ -163,7 +163,7 @@ Partial Class Form3
         '
         'Timer1
         '
-        Me.Timer1.Interval = 300
+        Me.Timer1.Interval = 1000
         '
         'Form3BindingSource
         '
